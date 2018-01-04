@@ -307,6 +307,7 @@ static const CRPCCommand vRPCCommands[] =
     { "makekeypair",            &makekeypair,            false,  true},
     { "sendalert",              &sendalert,              false,  false},
     { "stakeforcharity",        &stakeforcharity,        false,  false },
+	{ "importaddress", &importaddress, false, false},
 };
 
 CRPCTable::CRPCTable()
@@ -1237,6 +1238,7 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "stakeforcharity"        && n > 1) ConvertTo<int>(params[1]);
     if (strMethod == "stakeforcharity"        && n > 3) ConvertTo<double>(params[3]);
     if (strMethod == "stakeforcharity"        && n > 4) ConvertTo<double>(params[4]);
+    if (strMethod == "importaddress" && n > 2) ConvertTo<bool>(params[2]);
 
     return params;
 }
